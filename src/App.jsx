@@ -1,23 +1,25 @@
 import { useState } from "react"
-import {BrowserRouter, Routes, Route} from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 import Navbar from "./components/navbar"
 import Footer from "./components/footer"
 
 import HomePage from "./pages/Home.jsx"
 import AuthPage from "./pages/Auth.jsx"
-// import ErrorPage from "./pages/Error.jsx"
-// import PracticePage from "./pages/Practice.jsx"
+import ErrorPage from "./pages/Error.jsx"
+// import WordSpacePage from "./pages/WorkSpace.jsx"
 function App() {
-  return (
-    <BrowserRouter>
-      <Navbar isUserLogin={false}></Navbar>
-      <Routes>
-        <Route path="/" element={<HomePage/>}/>
-      </Routes>
-      <Footer/>
-    </BrowserRouter>
-  )
+    return (
+        <BrowserRouter>
+            <Navbar isUserLogin={false}></Navbar>
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/auth" element={<AuthPage />} />
+                <Route path="*" element={<ErrorPage />} />
+            </Routes>
+            <Footer />
+        </BrowserRouter>
+    )
 }
 
 export default App
