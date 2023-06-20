@@ -7,11 +7,20 @@ function SignUpForm() {
   const [password, setPassword] = useState("")
   const [repeatedPassword, setRepeatedPassword] = useState("")
   const handleClick = () => {
-    if (password === repeatedPassword) {
+    if (
+      password === repeatedPassword &&
+      email !== "" &&
+      password !== "" &&
+      repeatedPassword !== ""
+    ) {
       signUp()
     }
-    const signUp = async () => {
-      await createUserWithEmailAndPassword(auth, email, password)
+  }
+  const signUp = async () => {
+    try {
+      await createUserWithEmailAndPassword(Auth, email, password)
+    } catch (err) {
+      console.error(err)
     }
   }
 
@@ -46,7 +55,7 @@ function SignUpForm() {
       <div className="mt-6 space-y-4 self-center text-center sm:w-80 md:flex md:items-baseline md:justify-between lg:mt-16 lg:w-96">
         <button
           onClick={handleClick}
-          lassName="py-1px border-4 border-darkOrange px-8 py-px text-lg"
+          className="border-4 border-darkOrange px-8 py-px text-lg"
         >
           Sign up
         </button>
