@@ -1,18 +1,35 @@
-function Navbar(props){
-    return (
-        <nav className="flex width-full px-5 justify-between mt-6 md:px-10 lg:px-20 sm:mt-10 lg:mt-12">
-            <div className="flex">
-                <img src="MaterialSymbolsLibraryBooksRounded.svg" alt="site logo"/>
-                <p className="text-gunMetal mt-0.5">WOCABY</p>
-            </div>
-            <div className="flex gap-x-6">
-                {props.isUserLogin ?
-                <p className="text-gunMetal mt-0.5 hover:text-rhythm transition-colors">Log out</p> : 
-                <p className="text-gunMetal mt-0.5 hover:text-rhythm transition-colors hidden sm:block">Sign in / Sign up</p>
-                }
-                <img src="icons8-github.svg" alt="github logo" className="hover:scale-105 transition-transform"/>
-            </div>
-        </nav>
-    )
+import { Link } from "react-router-dom"
+function Navbar(props) {
+  return (
+    <nav className="width-full mt-6 flex justify-between px-5 sm:mt-10 md:px-10 lg:mt-12 lg:px-20">
+      <div className="flex">
+        <img src="MaterialSymbolsLibraryBooksRounded.svg" alt="site logo" />
+        <Link to="/" className="mt-0.5 text-gunMetal">
+          WOCABY
+        </Link>
+      </div>
+      <div className="flex gap-x-6">
+        {props.isUserLogin ? (
+          <p className="mt-0.5 text-gunMetal transition-colors hover:text-rhythm">
+            Log out
+          </p>
+        ) : (
+          <Link
+            to="/auth?page=sign-in"
+            className="mt-0.5 hidden text-gunMetal transition-colors hover:text-rhythm sm:block"
+          >
+            Sign in / Sign up
+          </Link>
+        )}
+        <a href="https://github.com/sourena-kazemi/Wocaby">
+          <img
+            src="icons8-github.svg"
+            alt="github logo"
+            className="transition-transform hover:scale-105"
+          />
+        </a>
+      </div>
+    </nav>
+  )
 }
 export default Navbar
