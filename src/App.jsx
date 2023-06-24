@@ -8,6 +8,7 @@ import HomePage from "./pages/Home.jsx"
 import AuthPage from "./pages/Auth.jsx"
 import ErrorPage from "./pages/Error.jsx"
 import WorkSpacePage from "./pages/WorkSpace.jsx"
+import VerificationPage from "./pages/Verification.jsx"
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/workspace" element={<WorkSpacePage />} />
+        <Route path="/verification" element={<VerificationPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />

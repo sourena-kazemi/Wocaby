@@ -9,7 +9,9 @@ function SignInForm() {
   const handleClick = async () => {
     try {
       await signInWithEmailAndPassword(Auth, email, password)
-      console.log(Auth)
+      if (!Auth.currentUser.emailVerified) {
+        throw "Verify your email"
+      }
     } catch (err) {
       setError(err.message)
     }

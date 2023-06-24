@@ -4,7 +4,7 @@ import {
   sendEmailVerification,
 } from "firebase/auth"
 import { useState } from "react"
-import { AbortedDeferredError, Link } from "react-router-dom"
+import { AbortedDeferredError, Link, redirect } from "react-router-dom"
 function SignUpForm() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -16,7 +16,7 @@ function SignUpForm() {
         await createUserWithEmailAndPassword(Auth, email, password)
         try {
           await sendEmailVerification(Auth.currentUser)
-          console.log(Auth)
+          redirect("/verification")
         } catch (err) {
           setError(err.message)
         }
