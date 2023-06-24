@@ -1,26 +1,28 @@
 import { Auth } from "../../config/firebase.js"
-import { createUserWithEmailAndPassword } from "firebase/auth"
+import {
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from "firebase/auth"
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { AbortedDeferredError, Link } from "react-router-dom"
 function SignUpForm() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [repeatedPassword, setRepeatedPassword] = useState("")
-  const handleClick = () => {
-    if (
-      password === repeatedPassword &&
-      email !== "" &&
-      password !== "" &&
-      repeatedPassword !== ""
-    ) {
-      signUp()
-    }
-  }
-  const signUp = async () => {
-    try {
-      await createUserWithEmailAndPassword(Auth, email, password)
-    } catch (err) {
-      console.error(err)
+  const [error, setError] = useState("")
+  const handleClick = async () => {
+    if (password === repeatedPassword) {
+      try {
+        await createUserWithEmailAndPassword(Auth, email, password)
+        try {
+          await sendEmailVerification(Auth.currentUser)
+          console.log(Auth)
+        } catch (err) {
+          setError(err.message)
+        }
+      } catch (err) {
+        setError(err.message)
+      }
     }
   }
 
@@ -52,6 +54,9 @@ function SignUpForm() {
         onChange={(e) => setRepeatedPassword(e.target.value)}
         className="rounded-lg border border-gunMetal bg-cornSilk px-4 py-3 placeholder:text-rhythm"
       />
+      <p className=" mt-2 text-darkOrange">
+        {error !== "" ? `* ${error}` : null}
+      </p>
       <div className="mt-6 space-y-4 self-center text-center sm:w-80 md:flex md:items-baseline md:justify-between lg:mt-16 lg:w-96">
         <button
           onClick={handleClick}

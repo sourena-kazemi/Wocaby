@@ -1,5 +1,14 @@
-import { Link } from "react-router-dom"
+import { useEffect } from "react"
+import { Link, redirect } from "react-router-dom"
+import { Auth } from "..//config/firebase.js"
+
 function Home() {
+  useEffect(() => {
+    if (Auth?.currentUser) {
+      redirect("/workspace")
+    }
+  }, [])
+
   return (
     <header className="ml-5 flex flex-col md:ml-10 lg:ml-20">
       <div className="mt-16 flex items-center justify-between md:mt-24 lg:mt-32 xl:mt-40">
