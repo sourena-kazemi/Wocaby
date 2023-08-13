@@ -1,22 +1,15 @@
-import { useEffect } from "react"
-import { Link, redirect } from "react-router-dom"
-import { Auth } from "..//config/firebase.js"
+import { Link } from "react-router-dom"
+import { Auth } from "../config/firebase.js"
 
 function Home() {
-  useEffect(() => {
-    if (Auth?.currentUser) {
-      redirect("/workspace")
-    }
-  }, [])
-
   return (
     <header className="ml-5 flex flex-col md:ml-10 lg:ml-20">
       <div className="mt-16 flex items-center justify-between md:mt-24 lg:mt-32 xl:mt-40">
         <div className="flex max-w-[30rem] flex-col xl:max-w-2xl">
           <h1 className="text-4xl xl:text-5xl">
             Improve your
-            <span className="text-orange"> Vocabulary</span>, for Free and in{" "}
-            <span className="underline">No Time</span>
+            <span className="text-orange"> Vocabulary</span>, for Free and in
+            <span className="underline"> No Time</span>
           </h1>
           <h2 className="mr-5 mt-8 text-rhythm sm:mr-0">
             Wocaby is free and easy to use.By just a minute a day,improve your
@@ -31,7 +24,7 @@ function Home() {
             </Link>
             <a
               href="https://github.com/sourena-kazemi/Wocaby"
-              className="mt-10 -translate-x-6 self-center text-orange underline sm:mt-16"
+              className="mt-10 -translate-x-6 self-center text-lg text-orange underline sm:mt-16"
             >
               We are open source
             </a>

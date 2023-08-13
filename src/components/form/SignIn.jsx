@@ -9,8 +9,10 @@ function SignInForm() {
   const handleClick = async () => {
     try {
       await signInWithEmailAndPassword(Auth, email, password)
-      if (!Auth.currentUser.emailVerified) {
-        throw "Verify your email"
+      if (Auth.currentUser.emailVerified) {
+        redirect("/workspace")
+      } else {
+        throw "Verify your Email"
       }
     } catch (err) {
       setError(err.message)
