@@ -14,10 +14,10 @@ function App() {
     <BrowserRouter>
       <Navbar isUserLogin={false}></Navbar>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/auth" element={<AuthPage />} />
-        <Route path="/workspace" element={<WorkSpacePage />} />
-        <Route path="/verification" element={<VerificationPage />} />
+        <Route path="./" element={<HomePage />} />
+        <Route path="./auth" element={<AuthPage />} />
+        <Route path="./workspace" element={<WorkSpacePage />} />
+        <Route path="./verification" element={<VerificationPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />
