@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 function Navbar(props) {
   return (
     <nav className="width-full mt-6 flex justify-between px-5 sm:mt-8 md:px-10 lg:px-20">
       <div className="flex">
-        <img src="MaterialSymbolsLibraryBooksRounded.svg" alt="site logo" />
+        <img src="./MaterialSymbolsLibraryBooksRounded.svg" alt="site logo" />
         <Link to="/" className="mt-0.5 text-gunMetal">
           WOCABY
         </Link>
@@ -35,15 +35,15 @@ function Navbar(props) {
             </Link>
           </>
         )}
-        <a href="https://github.com/sourena-kazemi/Wocaby">
+        <a href="https://github.com/sourena-kazemi/Wocaby" target="_blank">
           <img
-            src="icons8-github.svg"
+            src="./icons8-github.svg"
             alt="github logo"
             className="transition-transform hover:scale-105"
           />
         </a>
       </div>
     </nav>
-  )
+  );
 }
-export default Navbar
+export default Navbar;

@@ -1,12 +1,12 @@
-import { useState } from "react"
-import WordItem from "./WordItem.jsx"
+import { useState } from "react";
+import WordItem from "./WordItem.jsx";
 function WordList() {
-  const [progressVisibility, setProgressVisibility] = useState("hidden")
+  const [progressVisibility, setProgressVisibility] = useState("hidden");
   const toggleProgressVisibility = () => {
     setProgressVisibility(
       progressVisibility === "hidden" ? "visible" : "hidden"
-    )
-  }
+    );
+  };
   return (
     <div className="mx-auto mt-5 flex max-w-md flex-col gap-y-5 text-center md:mt-16 lg:max-w-4xl lg:flex-row lg:gap-x-5">
       <div className="ml-5 mr-5 flex flex-col">
@@ -22,8 +22,8 @@ function WordList() {
             <img
               src={`${
                 progressVisibility === "hidden"
-                  ? "MaterialSymbolsVisibilityOutlineRounded.svg"
-                  : "MaterialSymbolsVisibilityOffOutlineRounded.svg"
+                  ? "./MaterialSymbolsVisibilityOutlineRounded.svg"
+                  : "./MaterialSymbolsVisibilityOffOutlineRounded.svg"
               }`}
               alt="show icon"
             />
@@ -42,6 +42,6 @@ function WordList() {
         <WordItem word="Pagination" progress={72} state={progressVisibility} />
       </div>
     </div>
-  )
+  );
 }
-export default WordList
+export default WordList;

@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 function WordItem({ word, progress, state }) {
-  const [textColor, setTextColor] = useState("text-rhythm")
+  const [textColor, setTextColor] = useState("text-rhythm");
   useEffect(() => {
-    setTextColor(state === "hidden" ? "text-rhythm" : "text-gunMetal")
-  }, [state])
+    setTextColor(state === "hidden" ? "text-rhythm" : "text-gunMetal");
+  }, [state]);
   return (
     <div className="relative flex w-full items-center justify-between border-b-2 border-b-gunMetal px-10 lg:gap-x-32">
       <div
@@ -17,8 +17,8 @@ function WordItem({ word, progress, state }) {
         <span className={`pr-1 text-4xl leading-6 ${textColor}`}>.</span>
         {word}
       </p>
-      <img src="MaterialSymbolsDelete.svg" alt="trash" className=" w-6" />
+      <img src="./MaterialSymbolsDelete.svg" alt="trash" className=" w-6" />
     </div>
-  )
+  );
 }
-export default WordItem
+export default WordItem;

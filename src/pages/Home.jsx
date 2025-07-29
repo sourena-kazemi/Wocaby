@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom"
-import { Auth } from "../config/firebase.js"
+import { Link } from "react-router-dom";
+import { Auth } from "../config/firebase.js";
 
 function Home() {
   return (
@@ -24,6 +24,7 @@ function Home() {
             </Link>
             <a
               href="https://github.com/sourena-kazemi/Wocaby"
+              target="_blank"
               className="mt-10 -translate-x-6 self-center text-lg text-orange underline sm:mt-16"
             >
               We are open source
@@ -31,12 +32,12 @@ function Home() {
           </div>
         </div>
         <img
-          src="undraw_online_test_re_kyfx.svg"
+          src="./undraw_online_test_re_kyfx.svg"
           alt="man taking a online test"
           className="mr-5 hidden w-1/4 sm:block md:mr-10 lg:mr-20"
         />
       </div>
     </header>
-  )
+  );
 }
-export default Home
+export default Home;

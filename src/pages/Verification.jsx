@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 function Verification() {
   return (
     <div className="mx-auto mt-20 flex w-3/4 flex-col items-center text-center">
       <img
-        src="undraw_mailbox_re_dvds.svg"
+        src="./undraw_mailbox_re_dvds.svg"
         alt="mail box"
         className="sm:max-w-lg lg:max-w-xl xl:max-w-2xl"
       />
@@ -17,6 +17,6 @@ function Verification() {
         Sign in
       </Link>
     </div>
-  )
+  );
 }
-export default Verification
+export default Verification;
