@@ -1,30 +1,31 @@
-import { Auth } from "../../config/firebase.js"
-import {
-  createUserWithEmailAndPassword,
-  sendEmailVerification,
-} from "firebase/auth"
-import { useState } from "react"
-import { AbortedDeferredError, Link, redirect } from "react-router-dom"
+// import { Auth } from "../../config/firebase.js"
+// import {
+//   createUserWithEmailAndPassword,
+//   sendEmailVerification,
+// } from "firebase/auth"
+import { useState } from "react";
+import { AbortedDeferredError, Link, redirect } from "react-router-dom";
 function SignUpForm() {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [repeatedPassword, setRepeatedPassword] = useState("")
-  const [error, setError] = useState("")
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [repeatedPassword, setRepeatedPassword] = useState("");
+  const [error, setError] = useState("");
   const handleClick = async () => {
-    if (password === repeatedPassword) {
-      try {
-        await createUserWithEmailAndPassword(Auth, email, password)
-        try {
-          await sendEmailVerification(Auth.currentUser)
-          redirect("/verification")
-        } catch (err) {
-          setError(err.message)
-        }
-      } catch (err) {
-        setError(err.message)
-      }
-    }
-  }
+    // if (password === repeatedPassword) {
+    //   try {
+    //     await createUserWithEmailAndPassword(Auth, email, password)
+    //     try {
+    //       await sendEmailVerification(Auth.currentUser)
+    //       redirect("/verification")
+    //     } catch (err) {
+    //       setError(err.message)
+    //     }
+    //   } catch (err) {
+    //     setError(err.message)
+    //   }
+    // }
+    redirect("/verification");
+  };
 
   return (
     <div className="mx-auto flex flex-col gap-y-3 sm:w-80 md:mx-0 lg:w-96 lg:text-lg">
@@ -72,6 +73,6 @@ function SignUpForm() {
         </p>
       </div>
     </div>
-  )
+  );
 }
-export default SignUpForm
+export default SignUpForm;

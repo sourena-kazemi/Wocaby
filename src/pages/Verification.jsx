@@ -8,7 +8,9 @@ function Verification() {
         className="sm:max-w-lg lg:max-w-xl xl:max-w-2xl"
       />
       <h1 className="mb-8 mt-16 text-2xl">
-        Check your mail box, we sent you a verification email
+        {/* Check your mail box, we sent you a verification email */}
+        Your account has been verified. Please Click the button below to
+        continue using Wocaby.
       </h1>
       <Link
         to="/auth?page=sign-in"

@@ -1,23 +1,24 @@
-import { signInWithEmailAndPassword } from "firebase/auth"
-import { Auth } from "../../config/firebase.js"
-import { useState } from "react"
-import { Link } from "react-router-dom"
+// import { signInWithEmailAndPassword } from "firebase/auth"
+// import { Auth } from "../../config/firebase.js"
+import { useState } from "react";
+import { Link } from "react-router-dom";
 function SignInForm() {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [error, setError] = useState("")
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const handleClick = async () => {
-    try {
-      await signInWithEmailAndPassword(Auth, email, password)
-      if (Auth.currentUser.emailVerified) {
-        redirect("/workspace")
-      } else {
-        throw "Verify your Email"
-      }
-    } catch (err) {
-      setError(err.message)
-    }
-  }
+    // try {
+    //   await signInWithEmailAndPassword(Auth, email, password)
+    //   if (Auth.currentUser.emailVerified) {
+    //     redirect("/workspace")
+    //   } else {
+    //     throw "Verify your Email"
+    //   }
+    // } catch (err) {
+    //   setError(err.message)
+    // }
+    redirect("/workspace");
+  };
   return (
     <div className="mx-auto flex flex-col gap-y-3 sm:w-80 md:mx-0 lg:w-96 lg:text-lg">
       <h1 className="mb-10 text-center text-4xl md:text-start lg:mb-16 lg:text-5xl">
@@ -57,6 +58,6 @@ function SignInForm() {
         </p>
       </div>
     </div>
-  )
+  );
 }
-export default SignInForm
+export default SignInForm;

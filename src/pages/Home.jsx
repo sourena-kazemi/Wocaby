@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Auth } from "../config/firebase.js";
+// import { Auth } from "../config/firebase.js";
 
 function Home() {
   return (
