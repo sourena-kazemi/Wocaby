@@ -6,19 +6,18 @@ function SignInForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const handleClick = async () => {
-    // try {
-    //   await signInWithEmailAndPassword(Auth, email, password)
-    //   if (Auth.currentUser.emailVerified) {
-    //     redirect("/workspace")
-    //   } else {
-    //     throw "Verify your Email"
-    //   }
-    // } catch (err) {
-    //   setError(err.message)
-    // }
-    redirect("/workspace");
-  };
+  // const handleClick = async () => {
+  // try {
+  //   await signInWithEmailAndPassword(Auth, email, password)
+  //   if (Auth.currentUser.emailVerified) {
+  //     redirect("/workspace")
+  //   } else {
+  //     throw "Verify your Email"
+  //   }
+  // } catch (err) {
+  //   setError(err.message)
+  // }
+  // };
   return (
     <div className="mx-auto flex flex-col gap-y-3 sm:w-80 md:mx-0 lg:w-96 lg:text-lg">
       <h1 className="mb-10 text-center text-4xl md:text-start lg:mb-16 lg:text-5xl">
@@ -44,12 +43,12 @@ function SignInForm() {
         {error !== "" ? `* ${error}` : null}
       </p>
       <div className="mt-8 space-y-4 self-center text-center sm:w-80 md:flex md:items-baseline md:justify-between lg:mt-20 lg:w-96">
-        <button
-          className="py-1px border-4 border-darkOrange px-8 py-px text-lg"
-          onClick={handleClick}
+        <Link
+          to="/workspace"
+          className="py-1px border-4 border-darkOrange px-8 py-px text-lg transition-transform hover:scale-105 active:scale-95"
         >
           Sign in
-        </button>
+        </Link>
         <p>
           New User?
           <Link to="/auth" className="text-orange underline">

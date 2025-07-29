@@ -10,22 +10,21 @@ function SignUpForm() {
   const [password, setPassword] = useState("");
   const [repeatedPassword, setRepeatedPassword] = useState("");
   const [error, setError] = useState("");
-  const handleClick = async () => {
-    // if (password === repeatedPassword) {
-    //   try {
-    //     await createUserWithEmailAndPassword(Auth, email, password)
-    //     try {
-    //       await sendEmailVerification(Auth.currentUser)
-    //       redirect("/verification")
-    //     } catch (err) {
-    //       setError(err.message)
-    //     }
-    //   } catch (err) {
-    //     setError(err.message)
-    //   }
-    // }
-    redirect("/verification");
-  };
+  // const handleClick = async () => {
+  // if (password === repeatedPassword) {
+  //   try {
+  //     await createUserWithEmailAndPassword(Auth, email, password)
+  //     try {
+  //       await sendEmailVerification(Auth.currentUser)
+  //       redirect("/verification")
+  //     } catch (err) {
+  //       setError(err.message)
+  //     }
+  //   } catch (err) {
+  //     setError(err.message)
+  //   }
+  // }
+  // };
 
   return (
     <div className="mx-auto flex flex-col gap-y-3 sm:w-80 md:mx-0 lg:w-96 lg:text-lg">
@@ -59,12 +58,12 @@ function SignUpForm() {
         {error !== "" ? `* ${error}` : null}
       </p>
       <div className="mt-6 space-y-4 self-center text-center sm:w-80 md:flex md:items-baseline md:justify-between lg:mt-16 lg:w-96">
-        <button
-          onClick={handleClick}
-          className="border-4 border-darkOrange px-8 py-px text-lg"
+        <Link
+          to="/verification"
+          className="border-4 border-darkOrange px-8 py-px text-lg hover:scale-105 active:scale-95 transition-transform"
         >
           Sign up
-        </button>
+        </Link>
         <p>
           Already a User?
           <Link to="/auth?page=sign-in" className="text-orange underline">
